@@ -11,6 +11,7 @@
     <title>Bootstrap Off-Canvas Nav Plugin Demo</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
 
   </head>
