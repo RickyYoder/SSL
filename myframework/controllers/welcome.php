@@ -15,10 +15,11 @@
 			$this->getView("modals");
 			
 			$this->getView("welcome",array(
+				"pageName"=>"welcome",
 				"navbar"=>array(
-					"Home"=>"#",
-					"About Us"=>"#",
-					"Contact Us"=>"#",
+					"Home"=>"welcome",
+					"About"=>"#",
+					"Contact"=>"contact",
 					"Affiliates"=>"#"
 				)
 			));
@@ -26,6 +27,34 @@
 			$this->getView("footer");
 		}
 		
+		public function welcome(){
+			//just executes index() method
+			
+			$this->index();
+		}
+		
+		public function contact(){
+			
+			//contact method
+			//show contact form instead of landing (index) page
+			
+			$this->getView("header");
+			$this->getView("contact",array(
+				"pageName"=>"contact",
+				"navbar"=>array(
+					"Home"=>"welcome",
+					"About"=>"#",
+					"Contact"=>"contact",
+					"Affiliates"=>"#"
+				)
+			));
+			$this->getView("footer");
+		}
+		
+		
+		public function ajaxParse(){
+			print_r($_REQUEST);
+		}
 	}
 
 ?>
