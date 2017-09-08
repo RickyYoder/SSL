@@ -22,6 +22,16 @@
 					$appcon->$urlPathParts[1]();
 					
 				}
+				else{
+					//try to find the index method of the controller
+					$methodVariable = array($appcon, 'index');
+					
+					if(is_callable($methodVariable,false,$callable_name)){
+						
+						$appcon->index($this);
+						
+					}
+				}
 				
 			}else{
 				include './controllers/'.$config['defaultController'].".php";
@@ -32,6 +42,16 @@
 					
 					$appcon->$config['defaultController'][1]();
 					
+				}
+				else{
+					//try to find the index method of the controller
+					$methodVariable = array($appcon, 'index');
+					
+					if(is_callable($methodVariable,false,$callable_name)){
+						
+						$appcon->index($this);
+						
+					}
 				}
 			}
 		}

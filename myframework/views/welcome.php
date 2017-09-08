@@ -117,7 +117,7 @@
 		<div class="jumbotron">
 			<h1>Are popovers working?</h1>
 			
-			<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Yup. Popovers are working.">
+			<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Yup. Popovers are working.">
 				Click me
 			</button>
 		</div>
