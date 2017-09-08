@@ -6,7 +6,17 @@
 			
 			$this->getView("header");
 			
-			$this->getView("welcome");
+			$this->getView("modals");
+			
+			$this->getView("welcome",array(
+				"navbar"=>array(
+					"Home"=>"#",
+					"About Us"=>"#",
+					"Contact Us"=>"#"
+				)
+			));
+			
+			$this->getView("footer");
 		}
 		
 	}

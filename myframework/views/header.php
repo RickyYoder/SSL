@@ -8,10 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bootstrap Off-Canvas Nav Plugin Demo</title>
+    <title>Bootstrap Demo</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
+    <!--<link href="/assets/css/bootstrap.css" rel="stylesheet">-->
+	
+	<!--Bootstrap CDN for best results-->
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
   </head>

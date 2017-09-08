@@ -1,5 +1,3 @@
-<body class="off-canvas-nav-left" style="padding-top:70px;">
-
 
 
       <!-- Static navbar -->
@@ -19,9 +17,12 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">Link</a></li>
-              <li class="dropdown">
+			  <?php
+				foreach($data['navbar'] as $key=>$value){
+					echo '<li><a href="'.$value.'">'.$key.'</a></li> '."";
+				}
+			  ?>
+              <!--<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
@@ -32,7 +33,7 @@
                   <li role="separator" class="divider"></li>
                   <li><a href="#">One more separated link</a></li>
                 </ul>
-              </li>
+              </li>-->
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
@@ -60,7 +61,7 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <!--<div class="jumbotron">
         <h1>Bootstrap Off-Canvas Nav Plugin Demo</h1>
         <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
         <p>
@@ -85,20 +86,42 @@
       </div>
 
       <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <div class="jquery-script-ads"><script type="text/javascript"><!--
-google_ad_client = "ca-pub-2783044520727903";
-/* jQuery_demo */
-google_ad_slot = "2780937993";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>
-      </div>
+        
+      </div>-->
 
+		
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+			  <div class="item active">
+				<img src="/assets/img/policy_shipping.png" alt="Los Angeles" style="width:100%;">
+			  </div>
+
+			  <div class="item">
+				<img src="/assets/img/policy_tracking.png" alt="Chicago" style="width:100%;">
+			  </div>
+			  
+			</div>
+
+		</div>
+		
+		<div class="jumbotron">
+			<h1>Website Progress</h1>
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+			</div>
+			
+		</div>
+		
+		<div class="jumbotron">
+			<h1>Are popovers working?</h1>
+			
+			<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Yup. Popovers are working.">
+				Click me
+			</button>
+		</div>
+		
     </div> <!-- /container -->
 
 
@@ -106,11 +129,22 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="/assets/js/popper.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="src/bootstrap-off-canvas-nav.js"></script>
     <script type="text/javascript">
-
-  
-
-</script>
+		$(document).ready(function(){
+			$("#modal").modal({
+				show:true,
+				focus:true
+			});
+			
+			$("#carousel").carousel({
+				interval:3500
+			});
+			
+			$("button").click(function(){
+				$(this).popover('show');
+			});
+		});
+	</script>
   </body>
