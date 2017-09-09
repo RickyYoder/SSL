@@ -17,10 +17,10 @@
 			$this->getView("welcome",array(
 				"pageName"=>"welcome",
 				"navbar"=>array(
-					"Home"=>"welcome",
+					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"contact",
-					"Log In"=>"login"
+					"Contact"=>"/welcome/contact",
+					"Log In"=>"/welcome/login"
 				)
 			));
 			
@@ -42,10 +42,10 @@
 			$this->getView("contact",array(
 				"pageName"=>"contact",
 				"navbar"=>array(
-					"Home"=>"welcome",
+					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"contact",
-					"Log In"=>"login"
+					"Contact"=>"/welcome/contact",
+					"Log In"=>"/welcome/login"
 				)
 			));
 			$this->getView("footer");
@@ -61,10 +61,10 @@
 			$this->getView("login",array(
 				"pageName"=>"login",
 				"navbar"=>array(
-					"Home"=>"welcome",
+					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"contact",
-					"Log In"=>"login"
+					"Contact"=>"/welcome/contact",
+					"Log In"=>"/welcome/login"
 				)
 			));
 			

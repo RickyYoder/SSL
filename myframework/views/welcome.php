@@ -20,7 +20,7 @@
 			  <?php
 				foreach($data['navbar'] as $key=>$value){
 					if(isset($data['pageName'])){
-						if($data['pageName'] == $value) echo '<li class="active"><a href="'.$value.'">'.$key.'</a></li> '."";
+						if($data['pageName'] == explode("/",$value)[0]) echo '<li class="active"><a href="'.$value.'">'.$key.'</a></li> '."";
 						else echo '<li><a href="'.$value.'">'.$key.'</a></li> '."";
 					}
 					else echo '<li><a href="'.$value.'">'.$key.'</a></li> '."";
