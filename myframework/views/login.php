@@ -1,5 +1,31 @@
 <body>
-
+	<div class="modal fade" id="loginModal">
+	
+		<div class="modal-dialog" role="document">
+		
+			<div class="modal-content">
+			
+				<div class="modal-header">
+				
+					<h5 class="modal-title">Login</h5>
+					
+					<button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+					
+				
+				</div>
+				
+				<div class="modal-body">
+					
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">OK, cool.</button>
+				</div>
+			</div>
+		
+		</div>
+	
+	</div>
       <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -26,18 +52,6 @@
 					else echo '<li><a href="'.$value.'">'.$key.'</a></li> '."";
 				}
 			  ?>
-              <!--<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>-->
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
@@ -63,44 +77,27 @@
       </nav>
 
     <div class="container">
- 
 		<div class="jumbotron">
-			<h1>Contact Us</h1>
-			<p>Fill out our contact form below and we will get back to you at our soonest.</p>
+			<h1>User Log In</h1>
 		</div>
-		
 		<form action="" method="post">
 			<div class="form-group">
 				<!--Text input-->
 				<label for="email">Email</label>
-				<input type="email" class="form-control" placeholder="me@email.com" maxlength="120" name="email"/>
-			</div>
-			<div class="form-group">
-				<!--Radio input-->
-				<h3>Do you have an account with us?</h3>
-				<div class="radio">
-					<label><input type="radio" name="hasAccount" value="1">Yes</label>
-				</div>
-				<div class="radio">
-					<label><input type="radio" name="hasAccount" value="0">No</label>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="checkbox-inline"><input type="checkbox" name="newsletter" value="" checked>I would like to receive your newsletter</label>
+				<input type="email" class="form-control" placeholder="me@email.com" maxlength="120" name="email" required/>
 			</div>
 			
 			<div class="form-group">
-				<!--Textarea-->
-				<label for="comments">Comments/Concerns</label>
-				<textarea class="form-control" name="comments"></textarea>
+				<!--Text input-->
+				<label for="password">Password</label>
+				<input type="password" class="form-control"  maxlength="120" name="password" required/>
 			</div>
 			
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
 		</form>
-		<div id="feedback"></div>
-    </div>
+    </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -111,7 +108,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 		$(document).ready(function(){
-			feedback = $("#feedback");
+			
 		});
 		
 		
@@ -120,52 +117,24 @@
 			e.stopPropagation();
 			var f = this,
 				email = f.email,
-				hasAccount = f.hasAccount,
-				news = f.newsletter,
-				comments = f.comments;
-				
-				$(this).find(".form-group").each(function(){
-					$(this).removeClass("has-error");
-				});
-				$(hasAccount).parent().parent().parent().attr("style","");
-				feedback.attr("style","").html('');
-				
-				if(!email.value){
-					$(email).parent().addClass("has-error");
-					feedback.html("Please enter your email address.");
-				}
-				
-				else if(!hasAccount.value){
-					$(hasAccount).parent().parent().parent().attr("style","border:1px solid red");
-					feedback.html("Please specify whether or not you have an account with us.");
-				}
-				
-				else if(!comments.value){
-					$(comments).parent().addClass("has-error");
-					feedback.html("Please tell us your issue.");
-				}
-				
-				else{
-					$(this).find(".form-group").each(function(){
-						$(this).removeClass("has-error");
-					});
-					$(hasAccount).parent().parent().parent().attr("style","");
-					feedback.html('');
+				password = f.password;
+			
+			$.ajax({
+				"url":"/welcome/loginFormSubmit",
+				"data":{
+					"email":email.value,
+					"password":password.value
+				},
+				"success":function(result){
+					var m = $("#loginModal");
 					
-					$.ajax({
-						"url":"/welcome/contactFormSubmit",
-						"data":{
-							"email":email.value,
-							"hasAccount":hasAccount.value,
-							"newsletter":news.checked,
-							"comments":comments.value
-						},
-						"success":function(result){
-							feedback.css({"background":"green","color":"#fff"}).html("Thanks for reaching out to us!");
-							f.reset();
-						}
-					});
+					m.find(".modal-body").html(result);
+					
+					m.modal('show');
+					f.reset();
 				}
+			});
+
 		});
 	</script>
   </body>

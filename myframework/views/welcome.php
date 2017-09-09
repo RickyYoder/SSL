@@ -1,4 +1,4 @@
-
+<body>
 
       <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">

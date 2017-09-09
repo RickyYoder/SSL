@@ -20,7 +20,7 @@
 					"Home"=>"welcome",
 					"About"=>"#",
 					"Contact"=>"contact",
-					"Affiliates"=>"#"
+					"Log In"=>"login"
 				)
 			));
 			
@@ -45,15 +45,34 @@
 					"Home"=>"welcome",
 					"About"=>"#",
 					"Contact"=>"contact",
-					"Affiliates"=>"#"
+					"Log In"=>"login"
 				)
 			));
 			$this->getView("footer");
 		}
 		
-		
-		public function ajaxParse(){
+		public function contactFormSubmit(){
 			print_r($_REQUEST);
+		}
+		
+		
+		public function login(){
+			$this->getView("header");
+			$this->getView("login",array(
+				"pageName"=>"login",
+				"navbar"=>array(
+					"Home"=>"welcome",
+					"About"=>"#",
+					"Contact"=>"contact",
+					"Log In"=>"login"
+				)
+			));
+			
+		}
+		
+		public function loginFormSubmit(){
+			if($_REQUEST['email'] == "rick.yoder@xbit.technology" && $_REQUEST['password'] == "abc123") echo "Welcome back, Rick!";
+			else echo "Error. Incorrect username or password. Please try again.";
 		}
 	}
 
