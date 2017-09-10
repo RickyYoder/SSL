@@ -1,31 +1,5 @@
 <body>
-	<div class="modal fade" id="loginModal">
-	
-		<div class="modal-dialog" role="document">
-		
-			<div class="modal-content">
-			
-				<div class="modal-header">
-				
-					<h5 class="modal-title">Login</h5>
-					
-					<button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
-					
-				
-				</div>
-				
-				<div class="modal-body">
-					
-				</div>
-				
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal">OK.</button>
-				</div>
-			</div>
-		
-		</div>
-	
-	</div>
+
       <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -52,6 +26,18 @@
 					else echo '<li><a href="'.$value.'">'.$key.'</a></li> '."";
 				}
 			  ?>
+              <!--<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>-->
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
@@ -77,30 +63,13 @@
       </nav>
 
     <div class="container">
+ 
 		<div class="jumbotron">
-			<h1>User Log In</h1>
+			<h1>My Profile</h1>
+			<p><strong>My Email/Username</strong>: <?php echo $_SESSION['email']; ?></p>
 		</div>
-		<?php 
-			if(@$_GET['pleaseLogIn']) echo '<div style="background:#a00;padding:1rem;margin:1rem;"><strong style="color:#fff;">Please log in to continue.</strong></div>';
-		?>
-		<form action="" method="post">
-			<div class="form-group">
-				<!--Text input-->
-				<label for="email">Email</label>
-				<input type="email" class="form-control" placeholder="me@email.com" maxlength="120" name="email" required/>
-			</div>
-			
-			<div class="form-group">
-				<!--Text input-->
-				<label for="password">Password</label>
-				<input type="password" class="form-control"  maxlength="120" name="password" required/>
-			</div>
-			
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</div>
-		</form>
-    </div> <!-- /container -->
+		
+    </div>
 
 
     <!-- Bootstrap core JavaScript
@@ -115,31 +84,5 @@
 		});
 		
 		
-		$("form").on('submit',function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			var f = this,
-				email = f.email,
-				password = f.password;
-			
-			$.ajax({
-				"url":"/site/loginFormSubmit",
-				"data":{
-					"email":email.value,
-					"password":password.value
-				},
-				"success":function(result){
-					if(result){
-						var m = $("#loginModal");
-						
-						m.find(".modal-body").html(result);
-						
-						m.modal('show');
-					}
-					else window.location = '/profile';
-				}
-			});
-
-		});
 	</script>
   </body>

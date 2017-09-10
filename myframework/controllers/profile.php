@@ -3,10 +3,10 @@
 		
 		public function __construct(){
 			
-			if(isset($_SESSION['loggedin'])){
+			if(isset($_SESSION['loggedin']) && isset($_SESSION['email'])){
 				
 			}else{
-				header("Location: /site");
+				header("Location: /site/login?pleaseLogIn=1");
 				
 				die();
 				exit();

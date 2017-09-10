@@ -61,6 +61,10 @@
 		
 		
 		public function login(){
+			if(isset($_SESSION['loggedIn']) && isset($_SESSION['email'])){
+				header("Location:/profile");
+				exit();
+			}
 			$this->getView("header");
 			$this->getView("login",array(
 				"pageName"=>"login",
@@ -75,8 +79,17 @@
 		}
 		
 		public function loginFormSubmit(){
-			if($_REQUEST['email'] == "rick.yoder@xbit.technology" && $_REQUEST['password'] == "abc123") echo "Welcome back, Rick!";
+			if($_REQUEST['email'] == "rick.yoder@xbit.technology" && $_REQUEST['password'] == "abc123"){
+				$_SESSION['loggedin'] = true;
+				$_SESSION['email'] = $_REQUEST['email'];
+			}
 			else echo "Error. Incorrect username or password. Please try again.";
+		}
+		
+		public function logout(){
+			unset($_SESSION['loggedIn']);
+			unset($_SESSION['email']);
+			header("Location:/site/login");
 		}
 	}
 
