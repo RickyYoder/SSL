@@ -38,9 +38,13 @@
 			//contact method
 			//show contact form instead of landing (index) page
 			
+			$random = substr( md5(rand()), 0, 7);
+			$_SESSION['cap'] = $random;
+			
 			$this->getView("header");
 			$this->getView("contact",array(
 				"pageName"=>"contact",
+				"cap"=>$random,
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
@@ -52,7 +56,7 @@
 		}
 		
 		public function contactFormSubmit(){
-			print_r($_REQUEST);
+			if($_REQUEST['cap'] != $_SESSION['cap']) die("Invalid captcha");
 		}
 		
 		
