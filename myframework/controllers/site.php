@@ -1,6 +1,6 @@
 <?php
 
-	class welcome extends AppController{
+	class site extends AppController{
 	
 		public function __construct(){
 			
@@ -19,8 +19,8 @@
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"/welcome/contact",
-					"Log In"=>"/welcome/login"
+					"Contact"=>"/site/contact",
+					"Log In"=>"/site/login"
 				)
 			));
 			
@@ -44,8 +44,8 @@
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"/welcome/contact",
-					"Log In"=>"/welcome/login"
+					"Contact"=>"/site/contact",
+					"Log In"=>"/site/login"
 				)
 			));
 			$this->getView("footer");
@@ -63,8 +63,8 @@
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"/welcome/contact",
-					"Log In"=>"/welcome/login"
+					"Contact"=>"/site/contact",
+					"Log In"=>"/site/login"
 				)
 			));
 			

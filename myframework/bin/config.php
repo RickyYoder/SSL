@@ -1,6 +1,6 @@
 <?php
 	$config = array(
-		"defaultController" => "welcome",
+		"defaultController" => "site",
 		"dbname" => "fruits",
 		"dbuser" => "root",
 		"dbpass" => "root",
