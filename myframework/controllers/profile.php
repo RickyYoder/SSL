@@ -3,7 +3,7 @@
 		
 		public function __construct(){
 			
-			if(isset($_SESSION['loggedin']) && isset($_SESSION['email'])){
+			if(isset($_SESSION['loggedIn']) && isset($_SESSION['email'])){
 				
 			}else{
 				header("Location: /site/login?pleaseLogIn=1");
@@ -23,8 +23,7 @@
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"/site/contact",
-					"Log Out"=>"/site/logout"
+					"Contact"=>"/site/contact"
 				)
 			));
 		}

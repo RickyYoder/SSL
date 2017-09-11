@@ -19,8 +19,7 @@
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"/site/contact",
-					"Log In"=>"/site/login"
+					"Contact"=>"/site/contact"
 				)
 			));
 			
@@ -48,8 +47,7 @@
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"/site/contact",
-					"Log In"=>"/site/login"
+					"Contact"=>"/site/contact"
 				)
 			));
 			$this->getView("footer");
@@ -71,8 +69,7 @@
 				"navbar"=>array(
 					"Home"=>"/",
 					"About"=>"#",
-					"Contact"=>"/site/contact",
-					"Log In"=>"/site/login"
+					"Contact"=>"/site/contact"
 				)
 			));
 			
@@ -80,7 +77,7 @@
 		
 		public function loginFormSubmit(){
 			if($_REQUEST['email'] == "rick.yoder@xbit.technology" && $_REQUEST['password'] == "abc123"){
-				$_SESSION['loggedin'] = true;
+				$_SESSION['loggedIn'] = true;
 				$_SESSION['email'] = $_REQUEST['email'];
 			}
 			else echo "Error. Incorrect username or password. Please try again.";
