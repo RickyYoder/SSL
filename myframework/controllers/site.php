@@ -76,16 +76,49 @@
 		}
 		
 		public function loginFormSubmit(){
-			if($_REQUEST['email'] == "rick.yoder@xbit.technology" && $_REQUEST['password'] == "abc123"){
-				$_SESSION['loggedIn'] = true;
-				$_SESSION['email'] = $_REQUEST['email'];
+			if(isset($_REQUEST['email']) && isset($_REQUEST['password'])){
+				
+				$email = strtolower($_REQUEST['email']);
+				$password = $_REQUEST['password'];
+				$bio = null;
+				
+				//split the file by line
+				$users = explode("\n",file_get_contents("./assets/users.txt"));
+				
+				
+				//loop through each line
+				for($x = 0; $x < count($users); $x++){
+					$user = explode("|",$users[$x]);
+					/*
+						email => 0
+						password => 1
+						bio => 2
+					
+					*/
+					
+					if($email == strtolower($user[0]) && $password == $user[1]){
+						$bio = $user[2];
+						
+						break;
+					}
+				}
+				
+				if($email && $password && $bio != null){
+					$_SESSION['loggedIn'] = true;
+					$_SESSION['email'] = $email;
+					$_SESSION['bio'] = $bio;
+				}
+				else{
+					echo "Error. Incorrect email/password. Please try again.";
+				}
 			}
-			else echo "Error. Incorrect username or password. Please try again.";
+			else echo "Error. No email or password entered. Please try again.";
 		}
 		
 		public function logout(){
 			unset($_SESSION['loggedIn']);
 			unset($_SESSION['email']);
+			unset($_SESSION['bio']);
 			header("Location:/site/login");
 		}
 	}

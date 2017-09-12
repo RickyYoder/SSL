@@ -7,6 +7,8 @@
 		<div class="jumbotron">
 			<h1>My Profile</h1>
 			<p><strong>My Email/Username</strong>: <?php echo $_SESSION['email']; ?></p>
+			<p><strong>Profile:</strong></p>
+			<p><?php echo $_SESSION['bio']; ?></p>
 		</div>
 		
     </div>
