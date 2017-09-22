@@ -59,7 +59,7 @@
 		
 		
 		public function login(){
-			if(isset($_SESSION['loggedIn']) && isset($_SESSION['email'])){
+			if(isset($_SESSION['loggedIn']) && isset($_SESSION['userId'])){
 				header("Location:/profile");
 				exit();
 			}
@@ -117,8 +117,7 @@
 		
 		public function logout(){
 			unset($_SESSION['loggedIn']);
-			unset($_SESSION['email']);
-			unset($_SESSION['bio']);
+			unset($_SESSION['userId']);
 			header("Location:/site/login");
 		}
 	}

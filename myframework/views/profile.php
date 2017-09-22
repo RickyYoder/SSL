@@ -1,14 +1,16 @@
 <body>
 
-	<?php require_once "navbarSnippet.php"; ?>
+	<?php require_once "navbarSnippet.php"; 
+		#die(print_r($data['userData']));
+	?>
 
     <div class="container">
  
 		<div class="jumbotron">
 			<h1>My Profile</h1>
-			<p><strong>My Email/Username</strong>: <?php echo $_SESSION['email']; ?></p>
+			<p><strong>My Email/Username</strong>: <?php echo $data['userData']['email']; ?></p>
 			<p><strong>Profile:</strong></p>
-			<p><?php echo $_SESSION['bio']; ?></p>
+			<p><?php echo $data['userData']['bio']; ?></p>
 		</div>
 		
     </div>

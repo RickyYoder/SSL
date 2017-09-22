@@ -24,7 +24,7 @@
 					else echo '<li><a href="'.$value.'">'.$key.'</a></li> '."";
 				}
 				
-				if(isset($_SESSION['loggedIn']) && isset($_SESSION['email'])){
+				if(isset($_SESSION['loggedIn']) && isset($_SESSION['userId'])){
 					//if the user is logged in
 					echo '<li><a href="/profile">My Profile</a></li>';
 					echo '<li><a href="/site/logout">Log Out</a></li>';

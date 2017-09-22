@@ -1,9 +1,9 @@
 <?php
 	$config = array(
 		"defaultController" => "site",
-		"dbname" => "fruits",
-		"dbuser" => "root",
-		"dbpass" => "root",
+		"dbName" => "fruits",
+		"dbUser" => "root",
+		"dbPassword" => "root",
 		"baseURL" => "http://127.0.0.1:8080"
 	);
 	

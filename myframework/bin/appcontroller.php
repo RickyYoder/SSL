@@ -5,9 +5,7 @@
 		
 		public function __construct($urlPathParts, $config){
 			
-			//die(print_r($urlPathParts));
-			
-			//db information
+			$this->db = new PDO("mysql:dbname=".$config['dbName'].";",$config['dbUser'],$config['dbPassword']);
 			
 			$this->urlPathParts = $urlPathParts;
 			
@@ -65,11 +63,16 @@
 		}
 		
 		
-		public function getModel(){
+		public function getModel($page){
 				
 			//add this later
 			//get then pass data to that view (page)
-				
+			
+			require_once './models/'.$page.'.php';
+			
+			$model = new $page($this);
+			
+			return $model;
 		}
 	}
 ?>

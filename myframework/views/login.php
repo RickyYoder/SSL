@@ -35,8 +35,10 @@
 		</div>
 		<?php 
 			if(@$_GET['pleaseLogIn']) echo '<div style="background:#a00;padding:1rem;margin:1rem;"><strong style="color:#fff;">Please log in to continue.</strong></div>';
+			
+			if(@$_GET['err']) echo '<div style="background:#a00;padding:1rem;margin:1rem;"><strong style="color:#fff;">'.$_GET['err'].'</strong></div>';
 		?>
-		<form action="" method="post">
+		<form action="/auth/login" method="post">
 			<div class="form-group">
 				<!--Text input-->
 				<label for="email">Email</label>
@@ -69,7 +71,7 @@
 		
 		
 		$("form").on('submit',function(e){
-			e.preventDefault();
+			/*e.preventDefault();
 			e.stopPropagation();
 			var f = this,
 				email = f.email,
@@ -91,7 +93,7 @@
 					}
 					else window.location = '/profile';
 				}
-			});
+			});*/
 
 		});
 	</script>
