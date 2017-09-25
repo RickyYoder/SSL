@@ -15,5 +15,12 @@
 	
 	<!--Bootstrap CDN for best results-->
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
+	<style>
+		html,body{
+			width:100%;
+			height:100%;
+			padding:0;
+			margin:0;
+		}
+	</style>
   </head>
